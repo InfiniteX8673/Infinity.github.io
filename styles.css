@@ -1,0 +1,93 @@
+/* CSS Variables for theme and styling */
+:root {
+  --font-family: Arial, sans-serif;
+  --margin: 20px;
+  --bg-color: darkslategrey;
+  --container-bg: #fff;
+  --container-padding: 20px;
+  --container-radius: 10px;
+  --container-shadow: 1px 1px 50px rgba(0, 0, 0, 0.459);
+  --input-padding: 8px;
+  --input-margin: 5px;
+  --font-size: 16px;
+  --table-border: 1px solid #ccc;
+  --table-padding: 10px;
+  --th-bg: #f0f0f0;
+  --report-border: 2px solid #333;
+  --text-color: #000;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --container-bg: #333;
+  --text-color: #fff;
+  --th-bg: #444;
+}
+
+/* Base styling */
+body {
+  font-family: var(--font-family);
+  margin: var(--margin);
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: var(--container-bg);
+  padding: var(--container-padding);
+  border-radius: var(--container-radius);
+  box-shadow: var(--container-shadow);
+  /* Maintain a 16:9 aspect ratio on larger screens */
+  aspect-ratio: 16 / 9;
+  transition: all 0.3s ease;
+}
+
+input, select, button {
+  padding: var(--input-padding);
+  margin: var(--input-margin);
+  font-size: var(--font-size);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  border: var(--table-border);
+  padding: var(--table-padding);
+}
+
+th {
+  background-color: var(--th-bg);
+}
+
+.hidden {
+  display: none;
+}
+
+.report {
+  margin-top: 20px;
+  padding: 15px;
+  border: var(--report-border);
+  background-color: var(--container-bg);
+  text-align: left;
+}
+
+/* Responsive styling: relax aspect ratio on small screens */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+    aspect-ratio: auto;
+  }
+  input, select, button {
+    width: 100%;
+    margin: 8px 0;
+  }
+}

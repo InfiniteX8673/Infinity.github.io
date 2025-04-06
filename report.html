@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Report Generator</title>
+  <!-- Include jsPDF and jsPDF-AutoTable libraries and script.js file-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  <script src="scripts.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body> <!-- or light -->
+  <div class="container">
+    <h2>School Report Generator</h2>
+    <!-- Student Information Section -->
+    <div>
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" placeholder="Enter student name">
+    </div>
+    <div>
+      <label for="system">Grading System:</label>
+      <select id="system">
+        <option value="zimsec">ZIMSEC</option>
+        <option value="cambridge">Cambridge</option>
+      </select>
+    </div>
+    <br>
+    <!-- Subjects Input Section -->
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Score</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody id="subjects"></tbody>
+    </table>
+    <br>
+    <button onclick="addSubject()">Add Subject</button>
+    <button onclick="generateReport()">Generate Report</button>
+    <button onclick="clearReport()">Clear Report</button>
+    <!-- Report Section (hidden by default) -->
+    <div id="report" class="hidden">
+      <h3>Report for <span id="reportName"></span></h3>
+      <table id="reportTable">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody id="reportBody"></tbody>
+      </table>
+      <br>
+      <button onclick="downloadPDF()">Download PDF</button>
+    </div>
+  </div>
+</body>
+</html>
